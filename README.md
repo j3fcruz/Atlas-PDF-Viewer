@@ -1,274 +1,287 @@
-# 🆓 Atlas PDF Viewer — Free Edition v2.1.0
+<div align="center">
 
-![Python](https://img.shields.io/badge/python-3.10+-blue)
-![License](https://img.shields.io/badge/license-Free%20Edition-green)
-![PySide6](https://img.shields.io/badge/PySide6-6.x-blueviolet)
-![QtPdf](https://img.shields.io/badge/QtPdf-Engine-orange)
-![Platform](https://img.shields.io/badge/platform-Windows-lightgrey)
-![Release](https://img.shields.io/badge/release-v2.1.0-brightgreen)
-![Status](https://img.shields.io/badge/status-stable-success)
-![Build](https://img.shields.io/badge/build-Nuitka%20%7C%20PyInstaller-blue)
+<img src="assets/icons/icon.ico" alt="Atlas PDF Viewer" width="96" height="96"/>
 
-Atlas PDF Viewer — Free Edition is a fast, lightweight, and offline-first desktop PDF reader designed for productivity-focused users. Built with PySide6 and powered by a native Qt PDF engine, it delivers smooth rendering, a clean interface, and zero bloat.
+# Atlas PDF Viewer — Free Edition
+
+**v2.1.0** · Built by [PatronHubDevs Technologies](https://github.com/your-repo) · 🇵🇭 Philippines
+
+[![License: Free](https://img.shields.io/badge/License-Free%20Edition-blue.svg)](#-license)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python)](https://python.org)
+[![PySide6](https://img.shields.io/badge/UI-PySide6-41CD52?logo=qt)](https://doc.qt.io/qtforpython/)
+[![Platform](https://img.shields.io/badge/Platform-Windows-0078D4?logo=windows)](https://github.com/your-repo)
+[![Offline](https://img.shields.io/badge/Offline-First-success)](#-privacy)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/your-repo/pulls)
+
+> **Fast. Clean. Private. No compromises.**  
+> A lightweight, offline-first desktop PDF reader engineered for productivity-focused users — zero telemetry, zero bloat.
+
+[Download](#-installation) · [Screenshots](#-screenshots) · [Build from Source](#-build) · [Upgrade to Pro](#-upgrade-to-pro)
 
 ---
 
-## 📂 Project Structure
+</div>
 
+## Table of Contents
+
+- [Overview](#-overview)
+- [Features](#-features)
+- [Screenshots](#-screenshots)
+- [Project Structure](#-project-structure)
+- [Installation](#-installation)
+- [Build](#-build)
+- [Limitations](#-limitations-free-edition)
+- [Upgrade to Pro](#-upgrade-to-pro)
+- [Privacy](#-privacy)
+- [License](#-license)
+- [Author](#-author)
+- [Support](#-support)
+
+---
+
+## Overview
+
+**Atlas PDF Viewer — Free Edition** is a fast, modular, and offline-first desktop PDF reader built with **PySide6** and powered by a native **Qt PDF engine**. Designed for developers, cybersecurity learners, and power users who demand clean tooling without cloud dependencies or background telemetry.
+
+Engineered with a plugin-ready architecture and layered component design — built to scale into the Pro edition without refactoring.
+
+---
+
+## Features
+
+### PDF Rendering
+- Smooth, responsive PDF rendering via the QtPdf engine
+- Accurate text and layout fidelity
+- Fast page load with low memory overhead
+
+### Multi-Tab Workflow
+- Open and manage multiple PDFs simultaneously
+- Instant tab switching with clean document state management
+
+### Performance
+- Lightweight architecture — minimal CPU/RAM footprint
+- Fast cold-start, snappy UI interactions
+
+### Offline First
+- 100% local file processing — no network calls, ever
+- No cloud sync, no remote storage, no external dependencies
+
+### Modular Architecture
+- Plugin-ready kernel (`plugin_kernel.py`)
+- Engine registry pattern for swappable rendering backends
+- Clean separation: UI / Services / Core / Utils
+
+---
+
+## Screenshots
+
+| Main UI | Multi-Tab View |
+|--------|----------------|
+| ![Main UI](assets/screenshots/main_ui.png) | ![Multi Tab](assets/screenshots/multi_tab.png) |
+
+| Upgrade to Pro | About |
+|----------------|-------|
+| ![Upgrade](assets/screenshots/upgrade.png) | ![About](assets/screenshots/about.png) |
+
+---
+
+## Project Structure
+
+```
 atlas_opener_stripped/
-
-├── main.py
+├── main.py                        # Entry point
 ├── core/
 │   ├── __init__.py
-│   ├── __pycache__/
-│   ├── exceptions.py
-│   ├── atlas_format.py
-│   ├── mupdf_engine.py
-│   ├── qtpdf_engine.py
-│   ├── crypto_engine.py
-│   ├── plugin_kernel.py
-│   ├── document_engine.py
-│   ├── engine_registry.py
-│   ├── atlas_temp_manager.py
-│   ├── compression_engine.py
-│   ├── atlas_decrypt_worker.py
-│   └── crypto_engine_legacy.py
+│   ├── exceptions.py              # Custom exception hierarchy
+│   ├── atlas_format.py            # ATLAS document format handler
+│   ├── mupdf_engine.py            # MuPDF rendering backend
+│   ├── qtpdf_engine.py            # QtPdf rendering backend (primary)
+│   ├── crypto_engine.py           # Encryption/decryption engine (Pro)
+│   ├── crypto_engine_legacy.py    # Legacy crypto compatibility layer
+│   ├── plugin_kernel.py           # Plugin loader and lifecycle manager
+│   ├── document_engine.py         # Core document abstraction
+│   ├── engine_registry.py         # Backend engine registry/switcher
+│   ├── atlas_temp_manager.py      # Secure temp file lifecycle
+│   ├── compression_engine.py      # Document compression utilities
+│   └── atlas_decrypt_worker.py    # Async decryption worker thread
 ├── services/
-│   ├── __init__.py
-│   ├── __pycache__/
-│   ├── bookmark_service.py
-│   ├── document_service.py
-│   ├── thumbnail_service.py
-│   └── attachment_service.py
-├── models/
-│   ├── __init__.py
-│   └── __pycache__/
+│   ├── bookmark_service.py        # Bookmark persistence and retrieval
+│   ├── document_service.py        # Document open/close/state management
+│   ├── thumbnail_service.py       # Async thumbnail generation
+│   └── attachment_service.py      # Embedded attachment extraction
+├── models/                        # Data models / DTOs
 ├── ui/
-│   ├── __init__.py
-│   ├── __pycache__/
-│   ├── main_window.py
-│   ├── tab_manager.py
-│   ├── main_window_legacy.py
-│   ├── dialogs/
-│   │   ├── __init__.py
-│   │   ├── __pycache__/
-│   │   ├── base_dialog.py
-│   │   ├── error_dialog.py
-│   │   ├── info_dialogs.py
-│   │   ├── mf_auth_dialog.py
-│   │   ├── bookmarks_dialog.py
-│   │   ├── attachments_dialog.py
-│   │   ├── auth_error_handler.py
-│   │   ├── documentation_dialog.py
-│   │   └── mf_auth_dialog_legacy.py
-│   └── widgets/
-│       ├── toolbar.py
-│       ├── __init__.py
-│       ├── __pycache__/
-│       ├── pdf_canvas.py
-│       ├── search_panel.py
-│       ├── pdf_viewer_tab.py
-│       └── thumbnail_panel.py
-├── utils/
-│   ├── __init__.py
-│   ├── __pycache__/
-│   ├── path_utils.py
-│   ├── ui_helpers.py
-│   └── logging_setup.py
-├── assets/
-│   ├── icons/
-│   └── Screenshots/
-├── config/
-│   ├── theme.py
-│   ├── version.py
-│   ├── __init__.py
-│   ├── __pycache__/
-│   ├── settings.py
-│   └── logging_config.py
-├── .idea/
-├── .venv/
-├── atlas_viewer.log
-├── build_nuitka.bat
-└── requirements.txt
+│   ├── main_window.py             # Primary application window
+│   ├── tab_manager.py             # Tab lifecycle and switching
+│   ├── dialogs/                   # Modal dialogs (about, upgrade, etc.)
+│   └── widgets/                   # Reusable UI components
+├── utils/                         # Shared utilities and helpers
+├── assets/                        # Icons, images, stylesheets
+├── config/                        # App configuration and settings
+├── atlas_viewer.log               # Runtime log output
+├── build_nuitka.bat               # Nuitka production build script
+└── requirements.txt               # Python dependencies
+```
 
 ---
 
-## ⚡ Features (Free Edition)
+## Installation
 
-### 📄 PDF Viewing
-- Smooth and responsive PDF rendering  
-- Fast page loading using QtPdf engine  
-- Accurate text and layout display  
+### Option 1 — Prebuilt Binary (Recommended)
 
-### 🗂️ Multi-Tab Workflow
-- Open multiple PDFs  
-- Fast tab switching  
-- Clean document management  
+1. Download the latest release from [Gumroad](#) or [GitHub Releases](https://github.com/your-repo/releases)
+2. Extract the ZIP archive
+3. Run `Atlas_Viewer.exe`
 
-### ⚡ Performance
-- Lightweight architecture  
-- Fast startup  
-- Low memory usage  
+> No Python installation required. Ships as a standalone executable.
 
-### 🔌 Offline First
-- 100% offline usage  
-- No cloud dependency  
-- Local file processing only  
+### Option 2 — Run from Source
 
-### 🧩 Modular Architecture
-- Plugin-ready system  
-- Clean separation of components  
-- Built for future expansion  
+**Requirements:** Python 3.10+, Windows
 
----
+```bash
+# Clone the repository
+git clone https://github.com/your-repo/Atlas-PDF-Viewer.git
+cd Atlas-PDF-Viewer
 
-## 🛡️ Privacy
+# Create and activate virtual environment
+python -m venv venv
+venv\Scripts\activate
 
-- No tracking  
-- No telemetry  
-- No internet required  
-- Files never leave your device  
+# Install dependencies
+pip install -r requirements.txt
+
+# Launch
+python main.py
+```
 
 ---
 
-## 🖼 Screenshots
-
-Main UI
-
-![Main](assets/Screenshots/Main.png)
-
-Multi Tab View
-
-![Tabs](assets/Screenshots/Tab.png)
-
-Upgrade to Pro
-
-![Tabs](assets/Screenshots/Upgrade.png)
-
-About UI
-
-![Tabs](assets/Screenshots/About.png)
-
----
-
-## 🚀 Installation
-
-### Option 1 — Prebuilt
-
-1. Download from Gumroad  
-2. Extract ZIP  
-3. Run executable  
-
----
-
-### Option 2 — Source
-
-git clone https://github.com/your-repo/Atlas-PDF-Viewer.git  
-cd atlas-pdf-viewer  
-
-python -m venv venv  
-venv\Scripts\activate  
-
-pip install -r requirements.txt  
-python main.py  
-
----
-
-## 🏗 Build
+## Build
 
 ### PyInstaller
 
-pyinstaller --onedir --noconsole --clean \
---name="AtlasPDFViewer" \
---icon="assets/icons/icon.ico" \
---add-data "assets;assets" \
-main.py  
-
-### Nuitka (Recommended)
-
-  python -m nuitka ^
-  --standalone ^
-  --python-flag=no_asserts ^
-  --python-flag=no_docstrings ^
-  --windows-console-mode=disable ^
-  --enable-plugin=pyside6 ^
-  --include-module=PySide6.QtPdf ^
-  --include-module=PySide6.QtPdfWidgets ^
-  --include-module=atlas_core ^
-  --include-qt-plugins=platforms,styles,imageformats ^
-  --include-package=config ^
-  --include-package=core ^
-  --include-package=models ^
-  --include-package=services ^
-  --include-package=ui ^
-  --include-package=utils ^
-  --include-data-dir=assets=assets ^
-  --follow-imports ^
-  --nofollow-import-to=fitz ^
-  --nofollow-import-to=pymupdf ^
-  --nofollow-import-to=core.mupdf_engine ^
-  --windows-icon-from-ico=assets/icons/icon.ico ^
-  --windows-company-name="PatronHubDevs Technologies" ^
-  --windows-product-name="ATLAS PDF Viewer" ^
-  --windows-file-version=2.1.0.0 ^
-  --windows-product-version=2.1.0.0 ^
-  --windows-file-description="Commercial-Grade Multi-Format Document Viewer" ^
-  --output-dir=dist ^
-  --output-filename=Atlas_Viewer ^
-  --jobs=4 ^
+```bash
+pyinstaller \
+  --onedir \
+  --noconsole \
+  --clean \
+  --name="AtlasPDFViewer" \
+  --icon="assets/icons/icon.ico" \
+  --add-data "assets;assets" \
   main.py
+```
+
+### Nuitka (Recommended for Production)
+
+Produces faster, more compact, obfuscated binaries with better startup performance.
+
+```bash
+python -m nuitka \
+  --standalone \
+  --python-flag=no_asserts \
+  --python-flag=no_docstrings \
+  --windows-console-mode=disable \
+  --enable-plugin=pyside6 \
+  --include-module=PySide6.QtPdf \
+  --include-module=PySide6.QtPdfWidgets \
+  --include-package=config \
+  --include-package=core \
+  --include-package=models \
+  --include-package=services \
+  --include-package=ui \
+  --include-package=utils \
+  --include-data-dir=assets=assets \
+  --follow-imports \
+  --windows-icon-from-ico=assets/icons/icon.ico \
+  --windows-company-name="PatronHubDevs Technologies" \
+  --windows-product-name="ATLAS PDF Viewer" \
+  --windows-file-version=2.1.0.0 \
+  --windows-product-version=2.1.0.0 \
+  --output-dir=dist \
+  --output-filename=Atlas_Viewer \
+  main.py
+```
+
+> Output: `dist/Atlas_Viewer.exe` — ready for distribution.
 
 ---
 
-## ⚠️ Limitations (Free Edition)
+## Limitations (Free Edition)
 
-- No annotations  
-- No editing tools  
-- No encryption features  
-- No ATLAS format support  (Open .atlas file and normal .pdf only)  
-
----
-
-## 💎 Upgrade to Pro
-
-- ATLAS encrypted document format  
-- Rust-powered cryptographic engine  
-- Advanced document features  
-- Priority updates  
+| Feature | Free | Pro |
+|--------|------|-----|
+| PDF Viewing | ✅ | ✅ |
+| Multi-Tab | ✅ | ✅ |
+| Offline Operation | ✅ | ✅ |
+| Annotations & Markup | ❌ | ✅ |
+| Editing Tools | ❌ | ✅ |
+| ATLAS Encrypted Format | ❌ | ✅ |
+| Rust Crypto Engine | ❌ | ✅ |
+| Advanced Document Features | ❌ | ✅ |
+| Priority Updates | ❌ | ✅ |
 
 ---
 
-## 🧠 Built For
+## Upgrade to Pro
 
-- Developers  
-- Cybersecurity learners  
-- Offline workflows  
-- Productivity users  
+**Atlas PDF Viewer Pro** unlocks the full engine:
+
+- **ATLAS Encrypted Document Format** — proprietary secure document container
+- **Rust-Powered Cryptographic Engine** — high-performance, memory-safe encryption
+- **Annotations & Editing Tools** — markup, highlights, and document editing
+- **Advanced Document Features** — form filling, attachment management, bookmarks
+- **Priority Updates & Support**
+
+> [**Upgrade on Gumroad →**](#)
 
 ---
 
-## 📜 License
+## Privacy
 
-Free Edition — personal and commercial use allowed (with limitations)
+Atlas PDF Viewer is engineered with a strict privacy-first architecture:
+
+- **No telemetry** — zero usage data collected
+- **No tracking** — no analytics, crash reporters, or fingerprinting
+- **No internet required** — fully air-gap compatible
+- **Files never leave your device** — all processing is local and in-memory
 
 ---
 
-## 👤 Author
+## License
 
-Marco Polo  
+**Free Edition** — Personal and commercial use permitted with the following limitations:
+
+- Redistribution of modified builds is not permitted
+- Pro features may not be reverse-engineered or bypassed
+- Attribution to PatronHubDevs Technologies must be retained
+
+See `LICENSE` for full terms.
+
+---
+
+## Author
+
+**Marco Polo**  
 PatronHubDevs Technologies  
-Philippines  
+🇵🇭 Philippines  
+[GitHub](https://github.com/your-repo) · [Gumroad](#)
 
 ---
 
-## ⭐ Support
+## Support
 
-- Star the project  
-- Share it  
-- Upgrade to Pro  
+If Atlas PDF Viewer has been useful to you:
+
+- ⭐ **Star** the repository
+- 📢 **Share** it with your network
+- 💎 **[Upgrade to Pro](#-upgrade-to-pro)** to support continued development
 
 ---
 
-## 🔥 Vision
+<div align="center">
 
-Fast. Clean. Private. No compromises.
+**Atlas PDF Viewer** · PatronHubDevs Technologies · Philippines  
+*Fast. Clean. Private. No compromises.*
+
+</div>
