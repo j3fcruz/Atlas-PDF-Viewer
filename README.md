@@ -119,6 +119,7 @@ atlas_opener_stripped/
 ├── assets/                        # Icons, images, stylesheets
 ├── config/                        # App configuration and settings
 ├── atlas_viewer.log               # Runtime log output
+├── atlas_core.pyd                 # atlas_core compiled in RUST for better performance
 ├── build_nuitka.bat               # Nuitka production build script
 └── requirements.txt               # Python dependencies
 ```
