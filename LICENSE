@@ -1,6 +1,13 @@
-MIT License
+MIT License — Extended Edition
+Atlas PDF Viewer (Free Edition)
 
 Copyright (c) 2026 Marco Polo
+PatronHubDevs Technologies
+Philippines
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PART I — STANDARD MIT LICENSE
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +26,201 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PART II — EXTENDED TERMS (ATLAS PDF VIEWER — FREE EDITION)
+
+These extended terms supplement the MIT License above and govern the
+specific use, distribution, and modification of Atlas PDF Viewer —
+Free Edition. In the event of conflict, these extended terms take
+precedence.
+
+────────────────────────────────────────────────────────────────────────
+1. DEFINITIONS
+────────────────────────────────────────────────────────────────────────
+
+"Free Edition"
+    Refers to this publicly distributed version of Atlas PDF Viewer,
+    as released by PatronHubDevs Technologies under this license.
+
+"Pro Edition"
+    Refers to the commercial, separately licensed version of Atlas PDF
+    Viewer, which includes the ATLAS encrypted document format, the
+    Rust-powered cryptographic engine, annotation tools, and other
+    premium features not present in the Free Edition.
+
+"Pro Features"
+    Any functionality, modules, binaries, cryptographic routines, or
+    document format specifications that are exclusive to the Pro Edition,
+    including but not limited to: atlas_format.py (full ATLAS container),
+    crypto_engine.py, crypto_engine_legacy.py, atlas_decrypt_worker.py,
+    and any associated Rust crates or compiled extensions.
+
+"Derivative Work"
+    Any software, tool, application, or system that incorporates,
+    modifies, forks, wraps, or is substantially derived from the
+    source code or binaries of the Free Edition.
+
+"Author"
+    Marco Polo, operating under PatronHubDevs Technologies, Philippines.
+
+────────────────────────────────────────────────────────────────────────
+2. PERMITTED USES
+────────────────────────────────────────────────────────────────────────
+
+Subject to the conditions in this license, you are granted the following
+rights at no cost:
+
+  2.1  Personal Use
+       You may use, run, and modify the Free Edition for personal,
+       educational, research, and non-commercial productivity purposes
+       without restriction.
+
+  2.2  Commercial Use
+       You may use the Free Edition within a commercial environment
+       (e.g., as an internal document viewer within an organization)
+       provided that you do not redistribute it as part of a paid product
+       or service without prior written consent from the Author.
+
+  2.3  Open Source Derivatives
+       You may fork, modify, and redistribute Derivative Works under the
+       same MIT + Extended Terms license, provided all conditions in
+       Section 3 (Restrictions) are satisfied.
+
+  2.4  Integration
+       You may embed or integrate the Free Edition into open-source
+       tooling, developer environments, or educational platforms, provided
+       attribution is preserved and Pro Features are not replicated.
+
+────────────────────────────────────────────────────────────────────────
+3. RESTRICTIONS
+────────────────────────────────────────────────────────────────────────
+
+The following are expressly prohibited:
+
+  3.1  Pro Feature Replication
+       You may not reverse-engineer, reconstruct, re-implement, or
+       otherwise replicate Pro Features using the Free Edition source code
+       as a reference or starting point. This includes, but is not limited
+       to, the ATLAS encrypted container format and any associated
+       cryptographic routines.
+
+  3.2  Bypass of Edition Boundaries
+       You may not modify the Free Edition to unlock, simulate, or expose
+       Pro Edition functionality without a valid Pro license issued by
+       PatronHubDevs Technologies.
+
+  3.3  Commercial Redistribution Without Attribution
+       You may not sell, sublicense, or commercially distribute the Free
+       Edition or any Derivative Work without clearly crediting
+       "Atlas PDF Viewer by PatronHubDevs Technologies" in your product
+       documentation, About screen, or equivalent disclosure.
+
+  3.4  Misrepresentation
+       You may not present the Free Edition or any Derivative Work as an
+       original creation without attribution to the Author. You may not
+       remove, obscure, or alter copyright notices, author attribution,
+       or this license file.
+
+  3.5  Malicious Use
+       You may not use this software or any Derivative Work to facilitate
+       unauthorized access to systems, data exfiltration, surveillance,
+       or any activity that violates applicable local or international law.
+
+────────────────────────────────────────────────────────────────────────
+4. ATTRIBUTION REQUIREMENTS
+────────────────────────────────────────────────────────────────────────
+
+Any distribution, publication, or deployment of the Free Edition or a
+Derivative Work must include the following:
+
+  4.1  A copy of this LICENSE file, unmodified.
+
+  4.2  Visible attribution in one of the following locations:
+       — Application About dialog or screen
+       — README or documentation
+       — Product landing page or distribution listing
+
+       Acceptable attribution format:
+       "Powered by Atlas PDF Viewer — © 2026 Marco Polo,
+        PatronHubDevs Technologies"
+
+  4.3  A link to the original repository or distribution page where
+       reasonably possible (e.g., GitHub, Gumroad listing).
+
+────────────────────────────────────────────────────────────────────────
+5. THIRD-PARTY COMPONENTS
+────────────────────────────────────────────────────────────────────────
+
+Atlas PDF Viewer — Free Edition incorporates or depends upon the
+following third-party components, each governed by their respective
+licenses:
+
+  — PySide6 / Qt Framework
+    License: GNU LGPL v3 / Qt Commercial
+    https://www.qt.io/licensing/
+
+  — Python Standard Library
+    License: PSF License Agreement
+    https://docs.python.org/3/license.html
+
+  — MuPDF (optional backend, if compiled in)
+    License: GNU AGPL v3 / MuPDF Commercial
+    https://mupdf.com/licensing/
+
+  Users incorporating this software into their own projects are
+  responsible for compliance with all applicable third-party licenses.
+
+────────────────────────────────────────────────────────────────────────
+6. PRIVACY GUARANTEE (NON-BINDING DISCLOSURE)
+────────────────────────────────────────────────────────────────────────
+
+The Author warrants, to the best of their ability and by design, that
+Atlas PDF Viewer — Free Edition:
+
+  — Collects no user data, telemetry, or analytics.
+  — Makes no outbound network connections during normal operation.
+  — Does not transmit, upload, or cache user documents to any remote
+    server or cloud storage system.
+  — Processes all documents locally and in-memory only.
+
+This disclosure is provided for transparency and does not constitute a
+legally binding data processing agreement. Enterprise deployments
+requiring formal DPA or GDPR compliance documentation should contact
+the Author directly.
+
+────────────────────────────────────────────────────────────────────────
+7. PRO EDITION & COMMERCIAL LICENSING
+────────────────────────────────────────────────────────────────────────
+
+The Pro Edition of Atlas PDF Viewer is governed by a separate
+commercial license agreement issued by PatronHubDevs Technologies.
+
+For Pro licenses, OEM embedding rights, white-label distribution,
+or enterprise agreements, contact:
+
+  Marco Polo
+  PatronHubDevs Technologies
+  Philippines
+  contact@patronhubdevs.online
+
+────────────────────────────────────────────────────────────────────────
+8. DISCLAIMER & LIMITATION OF LIABILITY
+────────────────────────────────────────────────────────────────────────
+
+THE FREE EDITION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND.
+THE AUTHOR SHALL NOT BE LIABLE FOR ANY DAMAGES, DATA LOSS, SECURITY
+INCIDENTS, OR SYSTEM FAILURES ARISING FROM THE USE OR INABILITY TO USE
+THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+USE OF THIS SOFTWARE IN CRITICAL, LIFE-SAFETY, OR HIGH-SECURITY
+ENVIRONMENTS IS AT THE SOLE RISK OF THE DEPLOYING PARTY.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Atlas PDF Viewer — Free Edition v2.1.0
+© 2026 Marco Polo · PatronHubDevs Technologies · Philippines
+Fast. Clean. Private. No compromises.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
