@@ -3,14 +3,6 @@ atlas_opener.ui.main_window
 =============================
 MainWindow — opener-only shell.
 
-Removed vs full build:
-  * Print / Print Queue
-  * Protect PDF
-  * Export Page Text
-  * Generate Keyfile
-  * Documentation dialog
-  * Left sidebar (SidebarPanel) — no panel toggle actions in View menu
-  * ProtectionService dependency
 """
 
 from __future__ import annotations
@@ -82,21 +74,6 @@ def _make_app_icon() -> QIcon:
         from PySide6.QtWidgets import QStyle
         style = QApplication.style()
         return style.standardIcon(QStyle.StandardPixmap.SP_FileDialogDetailedView)  # type: ignore[union-attr]
-
-def show_premium_gate(parent, feature_name: str = "This feature"):
-    msg = QMessageBox(parent)
-    msg.setWindowTitle("Premium Feature Locked")
-    msg.setText(f"{feature_name} is available in the Premium version.")
-    msg.setInformativeText("Upgrade to unlock advanced features.")
-
-    upgrade_btn = msg.addButton("Upgrade", QMessageBox.ButtonRole.AcceptRole)
-    close_btn = msg.addButton("Close", QMessageBox.ButtonRole.RejectRole)
-
-    msg.exec()
-
-    from config import GUMROAD_URL
-    if msg.clickedButton() == upgrade_btn:
-        QDesktopServices.openUrl(QUrl(GUMROAD_URL))
 
 class MainWindow(QMainWindow):
     """
@@ -170,11 +147,6 @@ class MainWindow(QMainWindow):
         self._add_action(fm, "📂  Open…",              self._on_open_file,     "Ctrl+O")
         self._add_action(fm, "📂  Open in New Tab…",   self._on_open_new_tab,  "Ctrl+Shift+O")
         fm.addSeparator()
-        self._add_action(fm, "🖨️  Print…",             self._on_print,         "Ctrl+P")
-        self._add_action(fm, "📋  Print Queue…",       self._on_print_queue,   "Ctrl+Alt+P")
-        fm.addSeparator()
-        self._add_action(fm, "🛡️  Protect PDF…",       self._on_protect_pdf,   "Ctrl+Shift+P")
-        fm.addSeparator()
         self._add_action(fm, "✕  Close Tab",           self._on_close_tab,     "Ctrl+W")
         self._add_action(fm, "➕  New Tab",             self._on_new_tab,       "Ctrl+T")
         fm.addSeparator()
@@ -183,36 +155,10 @@ class MainWindow(QMainWindow):
         # View — Bookmarks / Thumbnails / Attachments are checkable
         vm = mb.addMenu("&View")
 
-        self._act_bookmarks = QAction("📚  Bookmarks", self)
-        self._act_bookmarks.setCheckable(True)
-        self._act_bookmarks.triggered.connect(self._on_bookmarks)
-        vm.addAction(self._act_bookmarks)
-
-        self._act_thumbnails = QAction("🖼️  Thumbnails", self)
-        self._act_thumbnails.setCheckable(True)
-        self._act_thumbnails.triggered.connect(self._on_thumbnails)
-        vm.addAction(self._act_thumbnails)
-
-        self._act_attachments = QAction("📎  Attachments", self)
-        self._act_attachments.setCheckable(True)
-        self._act_attachments.triggered.connect(self._on_attachments)
-        vm.addAction(self._act_attachments)
-
         vm.addSeparator()
         self._add_action(vm, "🔍  Zoom In",     self._on_zoom_in,    "Ctrl++")
         self._add_action(vm, "🔍  Zoom Out",    self._on_zoom_out,   "Ctrl+-")
         self._add_action(vm, "⟳  Reset Zoom",  self._on_zoom_reset, "Ctrl+0")
-
-        # Document
-        dm = mb.addMenu("&Document")
-        self._add_action(dm, "ℹ️  Properties", self._on_doc_info)
-        self._add_action(dm, "📋  Copy Page Text", self._on_copy_text, "Ctrl+C")
-        dm.addSeparator()
-        self._add_action(dm, "💾  Extract / Save As PDF…", self._on_extract_pdf, "Ctrl+Shift+S")
-
-        # Tools
-        tm = mb.addMenu("&Tools")
-        self._add_action(tm, "🔑  Generate Keyfile…", self._on_gen_keyfile)
 
         # Help
         hm = mb.addMenu("&Help")
@@ -317,47 +263,6 @@ class MainWindow(QMainWindow):
     @Slot()
     def _show_docs(self) -> None:
         DocumentationDialog(parent=self).exec()
-
-    # ── Print ──────────────────────────────────────────────────────────────
-    @Slot()
-    def _on_print(self) -> None:
-        show_premium_gate(self, "Print feature")
-
-    @Slot()
-    def _on_print_queue(self) -> None:
-        show_premium_gate(self, "Print Queue Manager")
-
-    @Slot()
-    def _on_protect_pdf(self) -> None:
-        show_premium_gate(self, "PDF Protection")
-
-    @Slot()
-    def _on_bookmarks(self) -> None:
-        show_premium_gate(self, "Bookmarks")
-
-    @Slot()
-    def _on_thumbnails(self) -> None:
-        show_premium_gate(self, "Thumbnails")
-
-    @Slot()
-    def _on_attachments(self) -> None:
-        show_premium_gate(self, "Attachments")
-
-    @Slot()
-    def _on_doc_info(self) -> None:
-        show_premium_gate(self, "Document Info")
-
-    @Slot()
-    def _on_copy_text(self) -> None:
-        show_premium_gate(self, "Text Copy")
-
-    @Slot()
-    def _on_gen_keyfile(self) -> None:
-        show_premium_gate(self, "Keyfile Generator")
-
-    @Slot()
-    def _on_extract_pdf(self) -> None:
-        show_premium_gate(self, "Extract / Save as PDF")
 
     # ── Status / Title Slots ───────────────────────────────────────────────
 
