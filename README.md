@@ -15,38 +15,81 @@ Atlas PDF Viewer — Free Edition is a fast, lightweight, and offline-first desk
 
 ## 📂 Project Structure
 
-atlas_pdf_viewer/
+atlas_opener_stripped/
 
-├── main.py                         # Application entry point  
-├── core/  
-│   ├── document_engine.py          # Abstract engine interface  
-│   ├── qtpdf_engine.py             # QtPdf implementation  
-│   ├── exceptions.py               # Exception hierarchy  
-│   └── plugin_kernel.py            # Engine/plugin system  
-│  
-├── services/  
-│   ├── document_service.py         # Document lifecycle  
-│   └── bookmark_service.py         # Bookmark handling  
-│  
-├── models/  
-│   ├── document_info.py  
-│   ├── page_info.py  
-│   └── bookmark_node.py  
-│  
-├── ui/  
-│   ├── main_window.py  
-│   └── widgets/  
-│       ├── pdf_viewer_tab.py  
-│       └── tab_manager.py  
-│  
-├── utils/  
-│   ├── logger.py  
-│   └── file_utils.py  
-│  
-└── assets/  
-    ├── icons/  
-    ├── styles/  
-    └── fonts  
+├── main.py
+├── core/
+│   ├── __init__.py
+│   ├── __pycache__/
+│   ├── exceptions.py
+│   ├── atlas_format.py
+│   ├── mupdf_engine.py
+│   ├── qtpdf_engine.py
+│   ├── crypto_engine.py
+│   ├── plugin_kernel.py
+│   ├── document_engine.py
+│   ├── engine_registry.py
+│   ├── atlas_temp_manager.py
+│   ├── compression_engine.py
+│   ├── atlas_decrypt_worker.py
+│   └── crypto_engine_legacy.py
+├── services/
+│   ├── __init__.py
+│   ├── __pycache__/
+│   ├── bookmark_service.py
+│   ├── document_service.py
+│   ├── thumbnail_service.py
+│   └── attachment_service.py
+├── models/
+│   ├── __init__.py
+│   └── __pycache__/
+├── ui/
+│   ├── __init__.py
+│   ├── __pycache__/
+│   ├── main_window.py
+│   ├── tab_manager.py
+│   ├── main_window_legacy.py
+│   ├── dialogs/
+│   │   ├── __init__.py
+│   │   ├── __pycache__/
+│   │   ├── base_dialog.py
+│   │   ├── error_dialog.py
+│   │   ├── info_dialogs.py
+│   │   ├── mf_auth_dialog.py
+│   │   ├── bookmarks_dialog.py
+│   │   ├── attachments_dialog.py
+│   │   ├── auth_error_handler.py
+│   │   ├── documentation_dialog.py
+│   │   └── mf_auth_dialog_legacy.py
+│   └── widgets/
+│       ├── toolbar.py
+│       ├── __init__.py
+│       ├── __pycache__/
+│       ├── pdf_canvas.py
+│       ├── search_panel.py
+│       ├── pdf_viewer_tab.py
+│       └── thumbnail_panel.py
+├── utils/
+│   ├── __init__.py
+│   ├── __pycache__/
+│   ├── path_utils.py
+│   ├── ui_helpers.py
+│   └── logging_setup.py
+├── assets/
+│   ├── icons/
+│   └── Screenshots/
+├── config/
+│   ├── theme.py
+│   ├── version.py
+│   ├── __init__.py
+│   ├── __pycache__/
+│   ├── settings.py
+│   └── logging_config.py
+├── .idea/
+├── .venv/
+├── atlas_viewer.log
+├── build_nuitka.bat
+└── requirements.txt
 
 ---
 
