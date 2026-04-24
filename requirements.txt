@@ -1,0 +1,17 @@
+# ATLAS Viewer — Phase 2 Hardened Requirements
+# All versions pinned to minimum required; no phantom packages.
+
+# ── Core UI ──────────────────────────────────────────────────────────────
+PySide6>=6.6.0
+
+# ── Cryptography ─────────────────────────────────────────────────────────
+cryptography>=41.0.0   # AES-256-GCM, HKDF, Ed25519
+blake3>=0.4.1           # keyfile KDF
+pyotp>=2.9.0            # TOTP factor
+qrcode[pil]>=7.4.2      # QR code generation for TOTP setup
+Pillow>=10.0.0          # Required by qrcode[pil]
+
+# ── Build tooling ────────────────────────────────────────────────────────
+nuitka>=2.0.0
+# zstandard is required by Nuitka for onefile compression on Windows
+zstandard>=0.21.0
