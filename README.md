@@ -143,12 +143,37 @@ main.py
 
 ### Nuitka (Recommended)
 
-python -m nuitka main.py \
---standalone \
---onefile \
---enable-plugin=pyside6 \
---windows-disable-console \
---output-filename=AtlasPDFViewer.exe  
+  python -m nuitka ^
+  --standalone ^
+  --python-flag=no_asserts ^
+  --python-flag=no_docstrings ^
+  --windows-console-mode=disable ^
+  --enable-plugin=pyside6 ^
+  --include-module=PySide6.QtPdf ^
+  --include-module=PySide6.QtPdfWidgets ^
+    --include-module=atlas_core ^
+  --include-qt-plugins=platforms,styles,imageformats ^
+  --include-package=config ^
+  --include-package=core ^
+  --include-package=models ^
+  --include-package=services ^
+  --include-package=ui ^
+  --include-package=utils ^
+  --include-data-dir=assets=assets ^
+  --follow-imports ^
+  --nofollow-import-to=fitz ^
+  --nofollow-import-to=pymupdf ^
+  --nofollow-import-to=core.mupdf_engine ^
+  --windows-icon-from-ico=assets/icons/icon.ico ^
+  --windows-company-name="PatronHubDevs Technologies" ^
+  --windows-product-name="ATLAS PDF Viewer" ^
+  --windows-file-version=2.1.0.0 ^
+  --windows-product-version=2.1.0.0 ^
+  --windows-file-description="Commercial-Grade Multi-Format Document Viewer" ^
+  --output-dir=dist ^
+  --output-filename=Atlas_Viewer ^
+  --jobs=4 ^
+  main.py
 
 ---
 
