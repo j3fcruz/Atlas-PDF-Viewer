@@ -151,7 +151,7 @@ main.py
   --enable-plugin=pyside6 ^
   --include-module=PySide6.QtPdf ^
   --include-module=PySide6.QtPdfWidgets ^
-    --include-module=atlas_core ^
+  --include-module=atlas_core ^
   --include-qt-plugins=platforms,styles,imageformats ^
   --include-package=config ^
   --include-package=core ^
@@ -182,7 +182,7 @@ main.py
 - No annotations  
 - No editing tools  
 - No encryption features  
-- No ATLAS format support  
+- No ATLAS format support  (Open .atlas file and normal .pdf only)  
 
 ---
 
