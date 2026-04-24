@@ -92,11 +92,19 @@ atlas_pdf_viewer/
 
 Main UI
 
-![Main](assets/screenshots/main.png)
+![Main](assets/Screenshots/Main.png)
 
 Multi Tab View
 
-![Tabs](assets/screenshots/tabs.png)
+![Tabs](assets/Screenshots/Tab.png)
+
+Upgrade to Pro
+
+![Tabs](assets/Screenshots/Upgrade.png)
+
+About UI
+
+![Tabs](assets/Screenshots/About.png)
 
 ---
 
