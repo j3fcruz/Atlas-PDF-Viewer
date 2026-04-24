@@ -205,3 +205,56 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# ════════════════════════════════════════════════════════════════
+# ATLAS PDF VIEWER — PROJECT-SPECIFIC
+# PatronHubDevs Technologies · Marco Polo · 2026
+# ════════════════════════════════════════════════════════════════
+
+# Runtime logs
+atlas_viewer.log
+
+# Nuitka artifacts
+*.build/
+*.dist/
+*.onefile-build/
+
+# Compiled binaries (never commit build output)
+*.exe
+*.dll
+*.pdb
+
+# Distribution packages
+*.zip
+*.tar.gz
+*.rar
+
+# Atlas temp manager output
+atlas_tmp/
+*.atlas_tmp
+
+# Qt compiled resources
+*.rcc
+*.qrc.py
+
+# Local config overrides
+config/local_settings.py
+config/*.local.*
+config/secrets.*
+
+# Cryptographic material (crypto_engine.py hardening)
+*.pem
+*.key
+*.p12
+*.pfx
+*.der
+secrets/
+keys/
+
+# OS artifacts
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# JetBrains IDEs
+.idea/
