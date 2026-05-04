@@ -266,7 +266,7 @@ See `LICENSE` for full terms.
 **Marco Polo**  
 PatronHubDevs Technologies  
 🇵🇭 Philippines  
-[GitHub](https://github.com/your-repo) · [Gumroad](#)
+[GitHub](https://github.com/j3fcruz/Atlas-PDF-Viewer) · [Gumroad](#)
 
 ---
 
@@ -276,7 +276,7 @@ If Atlas PDF Viewer has been useful to you:
 
 - ⭐ **Star** the repository
 - 📢 **Share** it with your network
-- 💎 **[Upgrade to Pro](#-upgrade-to-pro)** to support continued development
+- 💎 **[Upgrade to Pro](https://patronhubdevs.gumroad.com/l/nbuotr)** to support continued development
 
 ---
 
