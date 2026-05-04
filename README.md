@@ -130,7 +130,7 @@ atlas_opener_stripped/
 
 ### Option 1 — Prebuilt Binary (Recommended)
 
-1. Download the latest release from [Gumroad](#) or [GitHub Releases](https://github.com/your-repo/releases)
+1. Download the latest release from [Gumroad](https://patronhubdevs.gumroad.com/l/nbuotr) or [GitHub Releases](https://github.com/j3fcruz/Atlas-PDF-Viewer/releases/tag/2.1.0)
 2. Extract the ZIP archive
 3. Run `Atlas_Viewer.exe`
 
@@ -234,7 +234,7 @@ python -m nuitka \
 - **Advanced Document Features** — form filling, attachment management, bookmarks
 - **Priority Updates & Support**
 
-> [**Upgrade on Gumroad →**](#)
+> [**Upgrade on Gumroad →**](https://patronhubdevs.gumroad.com/l/nbuotr)
 
 ---
 
@@ -266,7 +266,7 @@ See `LICENSE` for full terms.
 **Marco Polo**  
 PatronHubDevs Technologies  
 🇵🇭 Philippines  
-[GitHub](https://github.com/j3fcruz/Atlas-PDF-Viewer) · [Gumroad](#)
+[GitHub](https://github.com/j3fcruz/Atlas-PDF-Viewer) · [Gumroad](https://patronhubdevs.gumroad.com/l/nbuotr)
 
 ---
 
