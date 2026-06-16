@@ -77,7 +77,7 @@ Engineered with a plugin-ready architecture and layered component design — bui
 
 | Main UI | Multi-Tab View |
 |--------|----------------|
-| ![Main UI](assets/screenshots/main_ui.png) | ![Multi Tab](assets/screenshots/multi_tab.png) |
+| ![Main UI](assets/screenshots/main.png) | ![Multi Tab](assets/screenshots/tab.png) |
 
 | Upgrade to Pro | About |
 |----------------|-------|
